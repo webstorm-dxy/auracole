@@ -129,9 +129,9 @@ func _get_preview_mesh_size() -> Vector3:
 	)
 
 
-func _set_preview_visible(is_visible: bool) -> void:
+func _set_preview_visible(visible_state: bool) -> void:
 	if preview_mesh_instance != null:
-		preview_mesh_instance.visible = is_visible
+		preview_mesh_instance.visible = visible_state
 
 func get_mouse_world_position() -> Variant:
 	var current_camera := get_viewport().get_camera_3d()

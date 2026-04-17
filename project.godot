@@ -44,6 +44,7 @@ glossary/default_case_sensitive=true
 
 window/size/viewport_width=1920.0
 window/size/viewport_height=1200.0
+window/size/mode=4
 
 [dotnet]
 
@@ -125,13 +126,13 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 global_illumination/voxel_gi/quality=1
 camera/depth_of_field/depth_of_field_bokeh_quality=3
-environment/ssao/quality=4
-environment/ssil/quality=4
-anti_aliasing/quality/msaa_2d=0.0
+environment/ssao/quality=4.0
+environment/ssil/quality=4.0
+anti_aliasing/quality/msaa_2d=3.0
 anti_aliasing/quality/msaa_3d=3.0
 anti_aliasing/quality/use_debanding=true
 scaling_3d/mode=2.0
-environment/subsurface_scattering/subsurface_scattering_quality=3
+environment/subsurface_scattering/subsurface_scattering_quality=3.0
 anti_aliasing/quality/screen_space_aa=2.0
 anti_aliasing/subsurface_scattering/subsurface_scattering_quality=1
 anti_aliasing/ssil/quality=2

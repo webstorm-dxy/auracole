@@ -21,7 +21,7 @@ uniform float highlight_softness : hint_range(0.001, 0.2, 0.001) = 0.03;
 uniform float rim_strength : hint_range(0.0, 1.0, 0.01) = 0.22;
 uniform float rim_threshold : hint_range(0.0, 1.0, 0.01) = 0.72;
 uniform float rim_softness : hint_range(0.001, 0.2, 0.001) = 0.08;
-uniform float ambient_boost : hint_range(0.0, 1.0, 0.01) = 0.05;
+uniform float ambient_boost : hint_range(0.0, 1.0, 0.01) = 0.16;
 uniform float alpha_cutoff : hint_range(0.0, 1.0, 0.01) = 0.1;
 
 
@@ -36,8 +36,8 @@ void fragment() {
 	ROUGHNESS = 1.0;
 	METALLIC = 0.0;
 	SPECULAR = 0.0;
-	// Keep character fill light subtle so global glow does not blow out skin and white cloth.
-	EMISSION = base.rgb * ambient_boost * 0.08;
+	// Use a character-only fill term so the avatar stays readable even when the scene key light is low.
+	EMISSION = base.rgb * ambient_boost;
 }
 
 
