@@ -28,7 +28,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "begin": "res://story/begin.dtl",
-"beginner": "res://story/beginner_1.dtl"
+"beginner": "res://story/beginner_1.dtl",
+"beginner_2": "res://story/beginner_2.dtl"
 }
 layout/style_directory={
 "": "res://story/beginner_style.tres",
