@@ -27,9 +27,17 @@ directories/dch_directory={
 "commander": "res://resources/commander.dch"
 }
 directories/dtl_directory={
-"begin": "res://story/begin.dtl"
+"begin": "res://story/begin.dtl",
+"beginner": "res://story/beginner_1.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://story/beginner_style.tres",
+"beginner_style": "res://story/beginner_style.tres",
+"style": "res://story/style.tres"
+}
+layout/style_list=["res://story/beginner_style.tres", "res://story/style.tres"]
+layout/default_style="res://story/beginner_style.tres"
+glossary/default_case_sensitive=true
 
 [display]
 

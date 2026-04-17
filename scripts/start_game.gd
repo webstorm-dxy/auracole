@@ -1,6 +1,6 @@
 extends Control
 
-var level: PackedScene = preload("res://scenes/jing_chuan.tscn")
+var level: PackedScene = preload("res://scenes/placement_logic/main.tscn")
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialog_ended)
