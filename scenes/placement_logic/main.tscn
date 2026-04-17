@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://fqs12skd8pmx" path="res://scripts/placement_logic/map_manager.gd" id="2_njhnf"]
 [ext_resource type="Script" uid="uid://d3kexldrys24n" path="res://scripts/placement_logic/ui_bar.gd" id="3_7ukgd"]
 [ext_resource type="Script" uid="uid://doxi3006x3kao" path="res://scripts/placement_logic/camera_rig.gd" id="4_31ecb"]
+[ext_resource type="Script" uid="uid://c06mh4kkxfq5b" path="res://scenes/placement_logic/layout_exporter.gd" id="5_xk8eg"]
 
 [node name="GameManager" type="Node2D" unique_id=880079559]
 script = ExtResource("1_u0f1a")
@@ -49,3 +50,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="InteractionMenu" type="PopupMenu" parent="CanvasLayer" unique_id=1426295989]
+
+[node name="IndustryLayoutExporter" type="Node" parent="." unique_id=1687370057]
+script = ExtResource("5_xk8eg")

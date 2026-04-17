@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp1dvf37ttwho"]
 
-[ext_resource type="Script" uid="uid://j52nmywhbhmd" path="res://scripts/industry_map/runtime/ProductionLineManager.cs" id="1_uarkq"]
+[ext_resource type="Script" uid="uid://d2ctm583sx86x" path="res://scenes/offline_production_controller.gd" id="1_uarkq"]
 [ext_resource type="Script" uid="uid://ds3sjeatsg2nn" path="res://scripts/industry_map/runtime/MachineController.cs" id="2_2huen"]
 
 [node name="OfflineProductionTest" type="Control" unique_id=470628199]
