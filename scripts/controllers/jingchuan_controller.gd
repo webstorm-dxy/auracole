@@ -251,8 +251,8 @@ func _unlock_player_from_map() -> void:
 
 # ====================== 卡通渲染应用 ======================
 func _apply_tps_demo_render_style() -> void:
-	_setup_environment()
-	_setup_directional_light()
+	#_setup_environment()
+	#_setup_directional_light()
 	_apply_toon_materials(player if not apply_toon_to_entire_scene else self)
 
 

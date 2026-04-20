@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dodtdak0x8628"]
 
 [ext_resource type="Script" uid="uid://sgyrluet8c6j" path="res://scripts/controllers/jingchuan_controller.gd" id="1_vg6x4"]
-[ext_resource type="PlaneMesh" uid="uid://b2uiqujy5wrsk" path="res://resources/plane_mesh.tres" id="2_emg11"]
 [ext_resource type="Texture2D" uid="uid://dorq2nnobnqwe" path="res://resources/texture/skykong/golden_gate_hills_2k.hdr" id="2_gbkix"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_h4a5q"]
-[ext_resource type="Shape3D" uid="uid://dycckucpiu4y4" path="res://resources/height_map_shape_3d.tres" id="2_vdwwp"]
 [ext_resource type="Resource" uid="uid://cc3i241ac1t5v" path="res://resources/Item/库存.tres" id="3_26vp5"]
 [ext_resource type="PackedScene" uid="uid://dtbi46uo726h8" path="res://model/kanami.gltf" id="3_a0mmc"]
-[ext_resource type="PackedScene" uid="uid://bv8gwqecnrxb4" path="res://scenes/Flood.tscn" id="5_26vp5"]
+[ext_resource type="PackedScene" uid="uid://cqmpx0nlbttrj" path="res://model/Flood02/qingqiu.glb" id="6_emg11"]
+[ext_resource type="Material" uid="uid://v220huatlved" path="res://resources/texture/new_shader_material.tres" id="7_vdwwp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6h3at"]
 panorama = ExtResource("2_gbkix")
@@ -20,7 +19,6 @@ radiance_size = 1
 background_mode = 2
 sky = SubResource("Sky_vg6x4")
 ambient_light_color = Color(1, 1, 1, 1)
-tonemap_exposure = 0.55
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
@@ -35,25 +33,26 @@ volumetric_fog_density = 0.009
 radius = 0.29248047
 height = 1.6279297
 
+[sub_resource type="BoxMesh" id="BoxMesh_emg11"]
+material = ExtResource("7_vdwwp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_vdwwp"]
+material = ExtResource("7_vdwwp")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vdwwp"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gbkix"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6h3at"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="JingChuan" type="Node3D" unique_id=1590024785]
 script = ExtResource("1_vg6x4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=791581841]
 environment = SubResource("Environment_2wwg8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1961200805]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.0
-light_indirect_energy = 0.353
-shadow_enabled = true
-
-[node name="Ground" type="StaticBody3D" parent="." unique_id=134569474]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=37420181]
-shape = ExtResource("2_vdwwp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1461632783]
-mesh = ExtResource("2_emg11")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=605012619]
 script = ExtResource("2_h4a5q")
@@ -73,9 +72,45 @@ shape = SubResource("CapsuleShape3D_26vp5")
 
 [node name="kanami" parent="Player" unique_id=791656827 instance=ExtResource("3_a0mmc")]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1961200805]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.0
+light_indirect_energy = 0.353
+shadow_enabled = true
+
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=817051716]
 
-[node name="Node3D" parent="." unique_id=714202430 instance=ExtResource("5_26vp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12749672, 0)
+[node name="qingqiu" parent="." unique_id=800631026 instance=ExtResource("6_emg11")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -21.403616, 0.234725, 0)
 
-[editable path="Node3D"]
+[node name="河道" type="Node3D" parent="." unique_id=1465376339]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="河道" unique_id=1274253769]
+transform = Transform3D(49.47031, 0, 0, 0, 1, 0, 0, 0, 31.60342, 0, -2.0049062, -45.852173)
+mesh = SubResource("BoxMesh_emg11")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="河道" unique_id=1310651606]
+transform = Transform3D(61.75215, 0, 0, 0, 1, 0, 0, 0, 70.83501, 0, -2.0787463, 56.249485)
+mesh = SubResource("BoxMesh_vdwwp")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=554238414]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D" unique_id=948703531]
+transform = Transform3D(89.826836, 0, 0, 0, 0.71, 0, 0, 0, 53.187145, 0.3092041, 0.44341248, 113.03609)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=203859776]
+shape = SubResource("ConvexPolygonShape3D_vdwwp")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D" unique_id=409794534]
+transform = Transform3D(53.19038, 0, 0, 0, 0.7099487, 0, 0, 0, 57.67386, -1.1506882, -0.565275, -5.311857)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D2" unique_id=120734624]
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_gbkix")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D/StaticBody3D2" unique_id=1188140464]
+transform = Transform3D(1.123817, 0, 0, 0, 0.42464843, 0, 0, 0, 0.7863962, -0.09793487, 0.34024578, -1.2877619)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D2/StaticBody3D3" unique_id=874745447]
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6h3at")
