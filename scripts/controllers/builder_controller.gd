@@ -11,9 +11,9 @@ var building_catalog: Array[Dictionary] = [
 		"name": "民居类",
 		"category": "民生建筑",
 		"summary": "用于安置居民、提供基础生活空间的标准民居单元。",
-		"description": "民居类建筑承担聚落扩展时最基础的人口承载功能。\n\n完成建造后可作为居民入住、生活组织和后续社区扩建的起点。",
+		"description": "民居类建筑采用徽式建筑结构，使用矿石粉和金属材料修建马头墙，以提高建筑的防火性能。穿斗式钢结构，通过穿枋连接柱子，提高建筑的抗震性能。承担聚落扩展时最基础的人口承载功能。\n\n完成建造后可作为居民入住、生活组织和后续社区扩建的起点。",
 		"build_label": "建造民居",
-		"image_path": "res://resources/build_pic/Mingju.png",
+		"image_path": "res://resources/build_pic/tingyuan.png",
 		"built": false,
 		"materials": [
 			{"id": "ore_powder", "name": "矿石粉", "category": "基础材料", "required_amount": 2000, "submitted_amount": 0},
@@ -36,13 +36,13 @@ var building_catalog: Array[Dictionary] = [
 		]
 	},
 	{
-		"id": "tingyuan",
-		"name": "庭院类",
-		"category": "景观建筑",
-		"summary": "兼顾居住品质与公共活动的庭院式景观建筑。",
-		"description": "庭院类建筑偏向环境塑造和区域宜居度提升。\n\n它通常用于居住区中心或连接多个功能区，提供缓冲、休憩和景观空间。",
+		"id": "shangdian",
+		"name": "商店类",
+		"category": "商业建筑",
+		"summary": "兼顾居住品质与公共活动商业街",
+		"description": "采用唐朝时期的街道布局，加以现代化的古风建筑风格，在保留传统文化内核的同时，让传统建筑在观感上不“古”。\n\n它通常用于商业区中心或连接多个功能区，提供缓冲、休憩和景观空间。",
 		"build_label": "建造庭院",
-		"image_path": "res://resources/build_pic/tingyuan.png",
+		"image_path": "res://resources/build_pic/Mingju.png",
 		"built": false,
 		"materials": [
 			{"id": "ore_powder", "name": "矿石粉", "category": "基础材料", "required_amount": 5000, "submitted_amount": 0},
