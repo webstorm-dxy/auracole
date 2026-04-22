@@ -1,0 +1,348 @@
+[gd_scene format=3 uid="uid://cqgi1wmiltf8x"]
+
+[ext_resource type="PackedScene" uid="uid://c0qe400ycap7p" path="res://model/Flood_01/zhaiqu.glb" id="1_qgg70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgg70"]
+size = Vector3(2, 0.001, 2)
+
+[node name="Node3D" type="Node3D" unique_id=1967404575]
+
+[node name="zhaiqu" parent="." unique_id=306335701 instance=ExtResource("1_qgg70")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="zhaiqu/Node3D/MeshInstance3D" parent_id_path=PackedInt32Array(306335701, 1837888069) index="0" unique_id=728407241]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zhaiqu/Node3D/MeshInstance3D/StaticBody3D" unique_id=1701486515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5e-06, 0)
+shape = SubResource("BoxShape3D_qgg70")
+
+[node name="Mount_Length_Stainless_Steel_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Mount_Length" parent_id_path=PackedInt32Array(306335701, 2075665143) index="0" unique_id=1132208365]
+transform = Transform3D(2.11, 0, 0, 0, 2.11, 0, 0, 0, 2.11, 0, 0, 0)
+
+[node name="Mount_Width_Stainless_Steel_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Mount_Width" parent_id_path=PackedInt32Array(306335701, 539845192) index="0" unique_id=1000706923]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400218, 9.4389543e-07)
+
+[node name="Rope_Length_Rope_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Rope_Length" parent_id_path=PackedInt32Array(306335701, 268057640) index="0" unique_id=1908037318]
+transform = Transform3D(2.11, 0, 0, 0, 2.11, 0, 0, 0, 2.11, 0, 0, 0)
+
+[node name="Rope_Length_Knot_Rope_Knot_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Rope_Length_Knot" parent_id_path=PackedInt32Array(306335701, 1746912859) index="0" unique_id=278779898]
+transform = Transform3D(2.11, 0, 0, 0, 2.11, 0, 0, 0, 2.11, 0, 0, 0)
+
+[node name="Rope_Width_Rope_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Rope_Width" parent_id_path=PackedInt32Array(306335701, 2051621733) index="0" unique_id=1554601782]
+transform = Transform3D(2.1100001, 0, 7.3496764e-14, 0, 2.1100001, 0, -4.152234e-14, 0, 2.1100001, -0.2338314, 13.398485, 9.443611e-07)
+
+[node name="Rope_Width_Knot_Rope_Knot_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Rope_Width_Knot" parent_id_path=PackedInt32Array(306335701, 1165556950) index="0" unique_id=499516058]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400218, 9.4389543e-07)
+
+[node name="Tent_Main_Stainless_Steel_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Tent_Main" parent_id_path=PackedInt32Array(306335701, 1052856613) index="0" unique_id=2017776039]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4389543e-07)
+
+[node name="Tent_Main_Tent_Bottom_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Tent_Main" parent_id_path=PackedInt32Array(306335701, 1052856613) index="1" unique_id=711641500]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4389543e-07)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Tent_Main" parent_id_path=PackedInt32Array(306335701, 1052856613) index="2" unique_id=265145161]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4389543e-07)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Tent_Main" parent_id_path=PackedInt32Array(306335701, 1052856613) index="3" unique_id=125111242]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4389543e-07)
+
+[node name="Tent_Main_Tent_Zipper_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Tent_Main" parent_id_path=PackedInt32Array(306335701, 1052856613) index="4" unique_id=81127281]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4389543e-07)
+
+[node name="Zipper_Stainless_Steel_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Zipper" parent_id_path=PackedInt32Array(306335701, 1963125868) index="0" unique_id=1963448947]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400219, 9.4412826e-07)
+
+[node name="Zipper_001_Stainless_Steel_0" parent="zhaiqu/Node3D/Sketchfab_Scene/Sketchfab_model/Camping_Tent_001_fbx/RootNode/Zipper_001" parent_id_path=PackedInt32Array(306335701, 2085069370) index="0" unique_id=758354202]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.09121227, 13.400218, 9.4389543e-07)
+
+[node name="qlEtl_LOD0_TIER2_000_MatID_1_0" parent="zhaiqu/Node3D/Sketchfab_Scene19/Sketchfab_model19/Dead_Tree_qlEtl_Mid_fbx/RootNode19/qlEtl_LOD0_TIER2_000" parent_id_path=PackedInt32Array(306335701, 810869331) index="0" unique_id=1096230131]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 629.54065, 0, 0)
+
+[node name="Mount_Length_Stainless_Steel_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Mount_Length2" parent_id_path=PackedInt32Array(306335701, 205421777) index="0" unique_id=34614250]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Mount_Width_Stainless_Steel_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Mount_Width2" parent_id_path=PackedInt32Array(306335701, 329932392) index="0" unique_id=1521973886]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Rope_Length_Rope_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Rope_Length2" parent_id_path=PackedInt32Array(306335701, 852765684) index="0" unique_id=1150930856]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Rope_Length_Knot_Rope_Knot_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Rope_Length_Knot2" parent_id_path=PackedInt32Array(306335701, 1374543257) index="0" unique_id=710059050]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Rope_Width_Rope_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Rope_Width2" parent_id_path=PackedInt32Array(306335701, 68565314) index="0" unique_id=572482683]
+transform = Transform3D(2.1100001, 0, 7.3496764e-14, 0, 2.1100001, 0, -4.152234e-14, 0, 2.1100001, -0.21374321, 12.247411, 8.624047e-07)
+
+[node name="Rope_Width_Knot_Rope_Knot_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Rope_Width_Knot2" parent_id_path=PackedInt32Array(306335701, 2090910689) index="0" unique_id=1444015697]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Tent_Main_Stainless_Steel_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Tent_Main2" parent_id_path=PackedInt32Array(306335701, 1573336027) index="0" unique_id=1073905988]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Tent_Main_Tent_Bottom_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Tent_Main2" parent_id_path=PackedInt32Array(306335701, 1573336027) index="1" unique_id=44691587]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Tent_Main2" parent_id_path=PackedInt32Array(306335701, 1573336027) index="2" unique_id=120027697]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Tent_Main2" parent_id_path=PackedInt32Array(306335701, 1573336027) index="3" unique_id=161003893]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Tent_Main_Tent_Zipper_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Tent_Main2" parent_id_path=PackedInt32Array(306335701, 1573336027) index="4" unique_id=1377652534]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.08337593, 12.248995, 8.6287037e-07)
+
+[node name="Zipper_Stainless_Steel_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Zipper2" parent_id_path=PackedInt32Array(306335701, 567983274) index="0" unique_id=1705186542]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.083376884, 12.248995, 8.6287037e-07)
+
+[node name="Zipper_001_Stainless_Steel_02" parent="zhaiqu/Node3D/Sketchfab_Scene2/Sketchfab_model2/Camping_Tent_001_fbx2/RootNode2/Zipper_0012" parent_id_path=PackedInt32Array(306335701, 2136790629) index="0" unique_id=2134501764]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.083376884, 12.248995, 8.6287037e-07)
+
+[node name="qlEtl_LOD0_TIER2_000_MatID_1_04" parent="zhaiqu/Node3D/Sketchfab_Scene22/Sketchfab_model22/Dead_Tree_qlEtl_Mid_fbx4/RootNode22/qlEtl_LOD0_TIER2_0004" parent_id_path=PackedInt32Array(306335701, 584398693) index="0" unique_id=617393858]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 128.92023, 0, 6.1035156e-05)
+
+[node name="Mount_Length_Stainless_Steel_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Mount_Length7" parent_id_path=PackedInt32Array(306335701, 249435890) index="0" unique_id=2045782536]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Mount_Width_Stainless_Steel_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Mount_Width7" parent_id_path=PackedInt32Array(306335701, 1678648736) index="0" unique_id=440520000]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234536, 8.441349, 1.3574027e-07)
+
+[node name="Rope_Length_Rope_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Rope_Length7" parent_id_path=PackedInt32Array(306335701, 527503454) index="0" unique_id=1914380262]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3579847e-07)
+
+[node name="Rope_Length_Knot_Rope_Knot_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Rope_Length_Knot7" parent_id_path=PackedInt32Array(306335701, 1345390811) index="0" unique_id=977662593]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Rope_Width_Rope_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Rope_Width7" parent_id_path=PackedInt32Array(306335701, 1626588284) index="0" unique_id=765461911]
+transform = Transform3D(2.1100006, 7.450581e-09, 1.8629542e-13, -7.450581e-09, 2.1100004, 1.4210855e-14, -1.5609736e-13, 0, 2.1100006, -1.2132351, 8.428915, 1.3783574e-07)
+
+[node name="Rope_Width_Knot_Rope_Knot_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Rope_Width_Knot7" parent_id_path=PackedInt32Array(306335701, 1922316621) index="0" unique_id=1506676462]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234536, 8.441349, 1.3574027e-07)
+
+[node name="Tent_Main_Stainless_Steel_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Tent_Main7" parent_id_path=PackedInt32Array(306335701, 1662380017) index="0" unique_id=528321828]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Tent_Main_Tent_Bottom_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Tent_Main7" parent_id_path=PackedInt32Array(306335701, 1662380017) index="1" unique_id=488799521]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Tent_Main7" parent_id_path=PackedInt32Array(306335701, 1662380017) index="2" unique_id=287512364]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Tent_Main7" parent_id_path=PackedInt32Array(306335701, 1662380017) index="3" unique_id=1888572776]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Tent_Main_Tent_Zipper_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Tent_Main7" parent_id_path=PackedInt32Array(306335701, 1662380017) index="4" unique_id=1423991504]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441349, 1.3574027e-07)
+
+[node name="Zipper_Stainless_Steel_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Zipper7" parent_id_path=PackedInt32Array(306335701, 1197798259) index="0" unique_id=1717544829]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234534, 8.441349, 1.3550743e-07)
+
+[node name="Zipper_001_Stainless_Steel_07" parent="zhaiqu/Node3D/Sketchfab_Scene25/Sketchfab_model7/Camping_Tent_001_fbx7/RootNode7/Zipper_0017" parent_id_path=PackedInt32Array(306335701, 1739572415) index="0" unique_id=2141585231]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.1234541, 8.441351, 1.3574027e-07)
+
+[node name="Mount_Length_Stainless_Steel_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Mount_Length8" parent_id_path=PackedInt32Array(306335701, 1293681050) index="0" unique_id=1117263272]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.0369709, 7.336462, 9.1968104e-08)
+
+[node name="Mount_Width_Stainless_Steel_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Mount_Width8" parent_id_path=PackedInt32Array(306335701, 1153043521) index="0" unique_id=52567964]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355177, 7.123166, 7.683411e-08)
+
+[node name="Rope_Length_Rope_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Rope_Length8" parent_id_path=PackedInt32Array(306335701, 679551125) index="0" unique_id=912630575]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.0369709, 7.336462, 9.188079e-08)
+
+[node name="Rope_Length_Knot_Rope_Knot_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Rope_Length_Knot8" parent_id_path=PackedInt32Array(306335701, 1892944855) index="0" unique_id=219532760]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 4.2632564e-14, 2.11, -1.0369709, 7.336462, 9.1968104e-08)
+
+[node name="Rope_Width_Rope_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Rope_Width8" parent_id_path=PackedInt32Array(306335701, 855706188) index="0" unique_id=1271357216]
+transform = Transform3D(2.1100008, 1.1175871e-08, 2.9976022e-13, -7.450581e-09, 2.1100004, 2.842171e-14, -3.270717e-13, 0, 2.1100008, -1.1112745, 7.111744, 7.543713e-08)
+
+[node name="Rope_Width_Knot_Rope_Knot_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Rope_Width_Knot8" parent_id_path=PackedInt32Array(306335701, 1884613177) index="0" unique_id=18038486]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355177, 7.123166, 7.683411e-08)
+
+[node name="Tent_Main_Stainless_Steel_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Tent_Main8" parent_id_path=PackedInt32Array(306335701, 1548307989) index="0" unique_id=2144873116]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355194, 7.123166, 7.695053e-08)
+
+[node name="Tent_Main_Tent_Bottom_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Tent_Main8" parent_id_path=PackedInt32Array(306335701, 1548307989) index="1" unique_id=954378507]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355194, 7.123166, 7.695053e-08)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Tent_Main8" parent_id_path=PackedInt32Array(306335701, 1548307989) index="2" unique_id=802594905]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355194, 7.123166, 7.695053e-08)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Tent_Main8" parent_id_path=PackedInt32Array(306335701, 1548307989) index="3" unique_id=463310700]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355194, 7.123166, 7.695053e-08)
+
+[node name="Tent_Main_Tent_Zipper_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Tent_Main8" parent_id_path=PackedInt32Array(306335701, 1548307989) index="4" unique_id=702719525]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355194, 7.123166, 7.695053e-08)
+
+[node name="Zipper_Stainless_Steel_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Zipper8" parent_id_path=PackedInt32Array(306335701, 2033298043) index="0" unique_id=145317567]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355186, 7.123166, 7.636845e-08)
+
+[node name="Zipper_001_Stainless_Steel_08" parent="zhaiqu/Node3D/Sketchfab_Scene26/Sketchfab_model8/Camping_Tent_001_fbx8/RootNode8/Zipper_0018" parent_id_path=PackedInt32Array(306335701, 1256010164) index="0" unique_id=1555204494]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -1.0355179, 7.123167, 7.695053e-08)
+
+[node name="Mount_Width_Stainless_Steel_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Mount_Width9" parent_id_path=PackedInt32Array(306335701, 1290367800) index="0" unique_id=1548830967]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.701451, -0.03429413, -2.026558e-06)
+
+[node name="Rope_Width_Rope_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Rope_Width9" parent_id_path=PackedInt32Array(306335701, 539793034) index="0" unique_id=1197557006]
+transform = Transform3D(-0.025483336, -2.1098466, -1.0820847e-06, 2.1098466, -0.025483342, 7.4013394e-07, -7.5314864e-07, -1.0730676e-06, 2.1100006, -4.688099, -0.0905571, -2.023764e-06)
+
+[node name="Rope_Width_Knot_Rope_Knot_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Rope_Width_Knot9" parent_id_path=PackedInt32Array(306335701, 1843791292) index="0" unique_id=1547138014]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.701451, -0.03429413, -2.026558e-06)
+
+[node name="Tent_Main_Stainless_Steel_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Tent_Main9" parent_id_path=PackedInt32Array(306335701, 583056214) index="0" unique_id=992538258]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.6982813, -0.03108406, -2.024928e-06)
+
+[node name="Tent_Main_Tent_Bottom_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Tent_Main9" parent_id_path=PackedInt32Array(306335701, 583056214) index="1" unique_id=867617914]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.6982813, -0.03108406, -2.024928e-06)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Tent_Main9" parent_id_path=PackedInt32Array(306335701, 583056214) index="2" unique_id=1219853482]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.6982813, -0.03108406, -2.024928e-06)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Tent_Main9" parent_id_path=PackedInt32Array(306335701, 583056214) index="3" unique_id=1115165405]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.6982813, -0.03108406, -2.024928e-06)
+
+[node name="Tent_Main_Tent_Zipper_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Tent_Main9" parent_id_path=PackedInt32Array(306335701, 583056214) index="4" unique_id=1580986890]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.6982813, -0.03108406, -2.024928e-06)
+
+[node name="Zipper_Stainless_Steel_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Zipper9" parent_id_path=PackedInt32Array(306335701, 497293101) index="0" unique_id=849907853]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.702357, -0.027062416, -2.0267908e-06)
+
+[node name="Zipper_001_Stainless_Steel_09" parent="zhaiqu/Node3D/Sketchfab_Scene27/Sketchfab_model9/Camping_Tent_001_fbx9/RootNode9/Zipper_0019" parent_id_path=PackedInt32Array(306335701, 366887414) index="0" unique_id=66358533]
+transform = Transform3D(-0.025483334, -2.1098459, -1.0741455e-06, 2.1098459, -0.025483338, 7.516084e-07, -7.645265e-07, -1.0649894e-06, 2.1100001, -4.701308, -0.028094292, -2.0259758e-06)
+
+[node name="Mount_Width_Stainless_Steel_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Mount_Width3" parent_id_path=PackedInt32Array(306335701, 1737268039) index="0" unique_id=319203289]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Rope_Width_Rope_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Rope_Width3" parent_id_path=PackedInt32Array(306335701, 1305376342) index="0" unique_id=699060278]
+transform = Transform3D(2.1100001, 0, 7.3496764e-14, 0, 2.1100001, 0, -4.152234e-14, 0, 2.1100001, -0.19927883, 11.41864, 8.046627e-07)
+
+[node name="Rope_Width_Knot_Rope_Knot_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Rope_Width_Knot3" parent_id_path=PackedInt32Array(306335701, 540959147) index="0" unique_id=1893446257]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Tent_Main_Stainless_Steel_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Tent_Main3" parent_id_path=PackedInt32Array(306335701, 1890894878) index="0" unique_id=247428476]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Tent_Main_Tent_Bottom_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Tent_Main3" parent_id_path=PackedInt32Array(306335701, 1890894878) index="1" unique_id=651833905]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Tent_Main3" parent_id_path=PackedInt32Array(306335701, 1890894878) index="2" unique_id=184026335]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Tent_Main3" parent_id_path=PackedInt32Array(306335701, 1890894878) index="3" unique_id=320636532]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Tent_Main_Tent_Zipper_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Tent_Main3" parent_id_path=PackedInt32Array(306335701, 1890894878) index="4" unique_id=1488415003]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Zipper_Stainless_Steel_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Zipper3" parent_id_path=PackedInt32Array(306335701, 1127688324) index="0" unique_id=670001866]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Zipper_001_Stainless_Steel_03" parent="zhaiqu/Node3D/Sketchfab_Scene3/Sketchfab_model3/Camping_Tent_001_fbx3/RootNode3/Zipper_0013" parent_id_path=PackedInt32Array(306335701, 191918946) index="0" unique_id=691150435]
+transform = Transform3D(2.1100001, 0, 3.4416914e-15, 9.313226e-10, 2.11, 0, 3.663736e-15, 1.4210855e-14, 2.11, -0.07773399, 11.420118, 8.044299e-07)
+
+[node name="Mount_Length_Stainless_Steel_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Mount_Length4" parent_id_path=PackedInt32Array(306335701, 1585174533) index="0" unique_id=402718543]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 7.1054274e-14, 2.11, 2.486578, 13.555916, 2.065557e-06)
+
+[node name="Mount_Width_Stainless_Steel_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Mount_Width4" parent_id_path=PackedInt32Array(306335701, 87644005) index="0" unique_id=1556312322]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868908, 13.509865, 2.0625303e-06)
+
+[node name="Rope_Length_Rope_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Rope_Length4" parent_id_path=PackedInt32Array(306335701, 1139364857) index="0" unique_id=373455413]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 7.1054274e-14, 2.11, 2.486578, 13.555916, 2.065266e-06)
+
+[node name="Rope_Length_Knot_Rope_Knot_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Rope_Length_Knot4" parent_id_path=PackedInt32Array(306335701, 906571197) index="0" unique_id=919316376]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 7.1054274e-14, 2.11, 2.486578, 13.555916, 2.065557e-06)
+
+[node name="Rope_Width_Rope_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Rope_Width4" parent_id_path=PackedInt32Array(306335701, 1453856345) index="0" unique_id=342943108]
+transform = Transform3D(2.1100008, 1.8626451e-08, 5.2602367e-13, -7.450581e-09, 2.1100004, 5.684342e-14, -4.97824e-13, -1.4210855e-14, 2.110001, 2.3429608, 13.535572, 2.0600855e-06)
+
+[node name="Rope_Width_Knot_Rope_Knot_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Rope_Width_Knot4" parent_id_path=PackedInt32Array(306335701, 573622518) index="0" unique_id=1225498100]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868908, 13.509865, 2.0625303e-06)
+
+[node name="Tent_Main_Stainless_Steel_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Tent_Main4" parent_id_path=PackedInt32Array(306335701, 1639247715) index="0" unique_id=1487618690]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868915, 13.509867, 2.0624138e-06)
+
+[node name="Tent_Main_Tent_Bottom_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Tent_Main4" parent_id_path=PackedInt32Array(306335701, 1639247715) index="1" unique_id=2112936392]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868915, 13.509867, 2.0624138e-06)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Tent_Main4" parent_id_path=PackedInt32Array(306335701, 1639247715) index="2" unique_id=1874684366]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868915, 13.509867, 2.0624138e-06)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Tent_Main4" parent_id_path=PackedInt32Array(306335701, 1639247715) index="3" unique_id=872750981]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868915, 13.509867, 2.0624138e-06)
+
+[node name="Tent_Main_Tent_Zipper_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Tent_Main4" parent_id_path=PackedInt32Array(306335701, 1639247715) index="4" unique_id=461160803]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868915, 13.509867, 2.0624138e-06)
+
+[node name="Zipper_Stainless_Steel_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Zipper4" parent_id_path=PackedInt32Array(306335701, 212116764) index="0" unique_id=561476768]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868903, 13.509863, 2.0619482e-06)
+
+[node name="Zipper_001_Stainless_Steel_04" parent="zhaiqu/Node3D/Sketchfab_Scene4/Sketchfab_model4/Camping_Tent_001_fbx4/RootNode4/Zipper_0014" parent_id_path=PackedInt32Array(306335701, 1220202170) index="0" unique_id=1580677961]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 9.947598e-14, 2.11, 2.4868903, 13.509865, 2.0624138e-06)
+
+[node name="Mount_Width_Stainless_Steel_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Mount_Width5" parent_id_path=PackedInt32Array(306335701, 752132944) index="0" unique_id=2101172390]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.869172, 2.4826417, 1.4173565e-06)
+
+[node name="Rope_Width_Rope_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Rope_Width5" parent_id_path=PackedInt32Array(306335701, 945768209) index="0" unique_id=705829531]
+transform = Transform3D(2.1100004, 3.7252903e-09, 1.298961e-13, -3.7252903e-09, 2.1100004, 1.4210855e-14, -9.880985e-14, 0, 2.1100004, 2.842586, 2.5130386, 1.4156103e-06)
+
+[node name="Rope_Width_Knot_Rope_Knot_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Rope_Width_Knot5" parent_id_path=PackedInt32Array(306335701, 252300646) index="0" unique_id=819164310]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.869172, 2.4826417, 1.4173565e-06)
+
+[node name="Tent_Main_Stainless_Steel_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Tent_Main5" parent_id_path=PackedInt32Array(306335701, 239369014) index="0" unique_id=1498017872]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691723, 2.4826417, 1.4173565e-06)
+
+[node name="Tent_Main_Tent_Bottom_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Tent_Main5" parent_id_path=PackedInt32Array(306335701, 239369014) index="1" unique_id=531444483]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691723, 2.4826417, 1.4173565e-06)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Tent_Main5" parent_id_path=PackedInt32Array(306335701, 239369014) index="2" unique_id=1118256219]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691723, 2.4826417, 1.4173565e-06)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Tent_Main5" parent_id_path=PackedInt32Array(306335701, 239369014) index="3" unique_id=84047286]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691723, 2.4826417, 1.4173565e-06)
+
+[node name="Tent_Main_Tent_Zipper_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Tent_Main5" parent_id_path=PackedInt32Array(306335701, 239369014) index="4" unique_id=1816192806]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691723, 2.4826417, 1.4173565e-06)
+
+[node name="Zipper_Stainless_Steel_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Zipper5" parent_id_path=PackedInt32Array(306335701, 404707275) index="0" unique_id=994237527]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.869173, 2.4826417, 1.4172401e-06)
+
+[node name="Zipper_001_Stainless_Steel_05" parent="zhaiqu/Node3D/Sketchfab_Scene5/Sketchfab_model5/Camping_Tent_001_fbx5/RootNode5/Zipper_0015" parent_id_path=PackedInt32Array(306335701, 8208463) index="0" unique_id=263627347]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 2.7939677e-09, 2.11, 0, 3.663736e-15, 2.842171e-14, 2.11, 2.8691728, 2.4826427, 1.4173565e-06)
+
+[node name="Mount_Length_Stainless_Steel_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Mount_Length6" parent_id_path=PackedInt32Array(306335701, 625883333) index="0" unique_id=1440155963]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Mount_Width_Stainless_Steel_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Mount_Width6" parent_id_path=PackedInt32Array(306335701, 1402586993) index="0" unique_id=228580950]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349919, 6.7128515, -1.3799872e-06)
+
+[node name="Rope_Length_Rope_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Rope_Length6" parent_id_path=PackedInt32Array(306335701, 1308506988) index="0" unique_id=1730947751]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3800745e-06)
+
+[node name="Rope_Length_Knot_Rope_Knot_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Rope_Length_Knot6" parent_id_path=PackedInt32Array(306335701, 789187206) index="0" unique_id=1230115266]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Rope_Width_Rope_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Rope_Width6" parent_id_path=PackedInt32Array(306335701, 1345854343) index="0" unique_id=473095702]
+transform = Transform3D(2.1100008, 1.1175871e-08, 2.9976022e-13, -7.450581e-09, 2.1100004, 2.842171e-14, -3.270717e-13, 0, 2.1100008, -4.42112, 6.66617, -1.38022e-06)
+
+[node name="Rope_Width_Knot_Rope_Knot_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Rope_Width_Knot6" parent_id_path=PackedInt32Array(306335701, 1777921284) index="0" unique_id=1123224661]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349919, 6.7128515, -1.3799872e-06)
+
+[node name="Tent_Main_Stainless_Steel_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Tent_Main6" parent_id_path=PackedInt32Array(306335701, 1860588922) index="0" unique_id=678067405]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Tent_Main_Tent_Bottom_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Tent_Main6" parent_id_path=PackedInt32Array(306335701, 1860588922) index="1" unique_id=777112931]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Tent_Main_Tent_Canvas_X_Green_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Tent_Main6" parent_id_path=PackedInt32Array(306335701, 1860588922) index="2" unique_id=393565453]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Tent_Main_Tent_Canvas_Y_Green_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Tent_Main6" parent_id_path=PackedInt32Array(306335701, 1860588922) index="3" unique_id=1970108600]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Tent_Main_Tent_Zipper_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Tent_Main6" parent_id_path=PackedInt32Array(306335701, 1860588922) index="4" unique_id=1641613977]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.349921, 6.7128487, -1.3797544e-06)
+
+[node name="Zipper_Stainless_Steel_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Zipper6" parent_id_path=PackedInt32Array(306335701, 533490503) index="0" unique_id=143959024]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.3499193, 6.7128487, -1.38022e-06)
+
+[node name="Zipper_001_Stainless_Steel_06" parent="zhaiqu/Node3D/Sketchfab_Scene6/Sketchfab_model6/Camping_Tent_001_fbx6/RootNode6/Zipper_0016" parent_id_path=PackedInt32Array(306335701, 1046521877) index="0" unique_id=120703699]
+transform = Transform3D(2.1100004, 0, 3.4416914e-15, 3.7252903e-09, 2.11, 0, 3.663736e-15, 5.684342e-14, 2.11, -4.3499193, 6.712849, -1.3797544e-06)
+
+[editable path="zhaiqu"]

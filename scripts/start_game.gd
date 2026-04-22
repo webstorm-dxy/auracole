@@ -1,6 +1,6 @@
 extends Control
 
-var level: PackedScene = preload("res://scenes/placement_logic/main.tscn")
+var level: PackedScene = preload("res://scenes/jing_chuan.tscn")
 var opening_timeline = preload("res://story/begin.dtl")
 var _is_starting: bool = false
 

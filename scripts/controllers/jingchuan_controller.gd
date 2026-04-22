@@ -15,10 +15,7 @@ const DEFAULT_INVENTORY_RESOURCE_PATH := "res://resources/Item/库存.tres"
 const MAP_TOGGLE_DEBOUNCE_MSEC := 200
 
 # ====================== 卡通渲染配置 ======================
-@export var apply_toon_to_entire_scene := true
-@export_range(0.0, 1.0, 0.01) var roughness_bias := 0.12
 @export_range(0.0, 1.0, 0.01) var rim_strength := 0.22
-@export_range(0.0, 1.0, 0.01) var rim_tint := 0.65
 @export var fallback_albedo := Color(0.82, 0.85, 0.92, 1.0)
 @export var outline_color := Color(0.05, 0.06, 0.09, 1.0)
 @export_range(0.0001, 0.015, 0.0005) var outline_width := 0.0006
@@ -253,7 +250,8 @@ func _unlock_player_from_map() -> void:
 func _apply_tps_demo_render_style() -> void:
 	#_setup_environment()
 	#_setup_directional_light()
-	_apply_toon_materials(player if not apply_toon_to_entire_scene else self)
+	if is_instance_valid(player):
+		_apply_toon_materials(player)
 
 
 func _setup_environment() -> void:
@@ -291,6 +289,9 @@ func _setup_directional_light() -> void:
 
 
 func _apply_toon_materials(root_node: Node) -> void:
+	if root_node == null:
+		return
+
 	if root_node is MeshInstance3D:
 		_toonize_mesh(root_node as MeshInstance3D)
 
@@ -299,43 +300,20 @@ func _apply_toon_materials(root_node: Node) -> void:
 
 
 func _toonize_mesh(mesh_instance: MeshInstance3D) -> void:
+	if not _is_character_mesh(mesh_instance):
+		return
+
 	var mesh: Mesh = mesh_instance.mesh
 	if mesh == null:
 		return
 
 	for surface_index in range(mesh.get_surface_count()):
 		var source_material := mesh_instance.get_active_material(surface_index)
-		var toon_material: Material
-		if _is_character_mesh(mesh_instance):
-			toon_material = _build_character_material(source_material)
-		else:
-			toon_material = _build_toon_material(source_material)
+		var toon_material := _build_character_material(source_material)
 		if toon_material != null:
 			mesh_instance.set_surface_override_material(surface_index, toon_material)
 
-	if _is_character_mesh(mesh_instance):
-		mesh_instance.material_overlay = _build_outline_material()
-
-
-func _build_toon_material(source_material: Material) -> BaseMaterial3D:
-	var toon_material: BaseMaterial3D
-
-	if source_material is BaseMaterial3D:
-		toon_material = (source_material as BaseMaterial3D).duplicate(true) as BaseMaterial3D
-	else:
-		var fallback_material := StandardMaterial3D.new()
-		fallback_material.albedo_color = fallback_albedo
-		toon_material = fallback_material
-
-	toon_material.set_local_to_scene(true)
-	toon_material.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON
-	toon_material.specular_mode = BaseMaterial3D.SPECULAR_TOON
-	toon_material.roughness = clamp(toon_material.roughness + roughness_bias, 0.0, 1.0)
-	toon_material.metallic = 0.0
-	toon_material.rim_enabled = true
-	toon_material.rim = max(toon_material.rim, rim_strength)
-	toon_material.rim_tint = max(toon_material.rim_tint, rim_tint)
-	return toon_material
+	mesh_instance.material_overlay = _build_outline_material()
 
 
 func _build_outline_material() -> BaseMaterial3D:
