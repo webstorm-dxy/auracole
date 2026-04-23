@@ -8,16 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://cqmpx0nlbttrj" path="res://model/Flood02/qingqiu.glb" id="6_emg11"]
 [ext_resource type="Material" uid="uid://v220huatlved" path="res://resources/texture/new_shader_material.tres" id="7_vdwwp"]
 [ext_resource type="PackedScene" uid="uid://cqgi1wmiltf8x" path="res://zhaiqu.tscn" id="8_gbkix"]
+[ext_resource type="Texture2D" uid="uid://tstudfvx6cop" path="res://resources/texture/圆角矩形.png" id="9_q0dy2"]
+[ext_resource type="Texture2D" uid="uid://clmd0y05snuds" path="res://resources/texture/duihua.png" id="11_re8ii"]
+[ext_resource type="Script" uid="uid://b517p15jvrckb" path="res://scripts/area_talk.gd" id="12_0y1y2"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vdwwp"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gbkix"]
 panorama = ExtResource("2_gbkix")
 
-[sub_resource type="Sky" id="Sky_gbkix"]
-sky_material = SubResource("PanoramaSkyMaterial_vdwwp")
+[sub_resource type="Sky" id="Sky_6h3at"]
+sky_material = SubResource("PanoramaSkyMaterial_gbkix")
 
-[sub_resource type="Environment" id="Environment_6h3at"]
+[sub_resource type="Environment" id="Environment_q0dy2"]
 background_mode = 2
-sky = SubResource("Sky_gbkix")
+sky = SubResource("Sky_6h3at")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -33,14 +36,24 @@ material = ExtResource("7_vdwwp")
 [sub_resource type="BoxMesh" id="BoxMesh_vdwwp"]
 material = ExtResource("7_vdwwp")
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_re8ii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0y1y2"]
+
 [node name="JingChuan" type="Node3D" unique_id=1590024785]
 script = ExtResource("1_vg6x4")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1117237691]
-environment = SubResource("Environment_6h3at")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=958690462]
+environment = SubResource("Environment_q0dy2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1528768311]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.02
+shadow_enabled = true
+sky_mode = 2
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=605012619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.86159, 0.30203152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.27153, 0.30203152, 0)
 script = ExtResource("2_h4a5q")
 inventory_data = ExtResource("3_26vp5")
 camera_distance = 2.5
@@ -58,12 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8319787, 0)
 shape = SubResource("CapsuleShape3D_26vp5")
 
 [node name="kanami" parent="Player" unique_id=791656827 instance=ExtResource("3_a0mmc")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1961200805]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.0
-light_indirect_energy = 0.353
-shadow_enabled = true
+transform = Transform3D(-0.9453366, 0, 0.32609624, 0, 1, 0, -0.32609624, 0, -0.9453366, 0, -0.14080942, 0)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=817051716]
 
@@ -88,6 +96,67 @@ mesh = SubResource("BoxMesh_vdwwp")
 
 [node name="Node3D" parent="." unique_id=1967404575 instance=ExtResource("8_gbkix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.40168, 0, 0)
+
+[node name="node_0" parent="Node3D/zhaiqu/Node3D/convert" parent_id_path=PackedInt32Array(1967404575, 306335701, 250724766) index="0" unique_id=24275779]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1.26, 0, 1, -5.507635e-08, 0, 0, 0)
+
+[node name="node_02" parent="Node3D/zhaiqu/Node3D/convert2" parent_id_path=PackedInt32Array(1967404575, 306335701, 112100497) index="0" unique_id=425218421]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1.29, 0, 1, -5.638769e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Node3D/zhaiqu/Node3D" parent_id_path=PackedInt32Array(1967404575, 306335701, 1423283382) index="18" unique_id=1837888069]
+transform = Transform3D(16.575, 0, 0, 0, 16.575, 0, 0, 0, 16.575, 0.068107605, 0, 0.0013480186)
+
+[node name="duihua" type="Control" parent="." unique_id=2128794716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1594.0001
+offset_top = 833.00006
+offset_right = -197.31995
+offset_bottom = -310.99994
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.45, 1.45)
+
+[node name="TextureRect" type="TextureRect" parent="duihua" unique_id=1776778008]
+layout_mode = 0
+offset_left = 12.413828
+offset_top = 15.862085
+offset_right = 212.41383
+offset_bottom = 215.86209
+scale = Vector2(0.13939357, 0.13543089)
+texture = ExtResource("11_re8ii")
+
+[node name="Label" type="Label" parent="duihua" unique_id=1124184395]
+layout_mode = 0
+offset_left = 39.31031
+offset_top = 16.55174
+offset_right = 113.31031
+offset_bottom = 39.551743
+text = "    按F对话"
+
+[node name="TextureRect2" type="TextureRect" parent="duihua" unique_id=562290028]
+modulate = Color(1, 1, 1, 0.29411766)
+layout_mode = 0
+offset_left = -2.758625
+offset_top = 11.72414
+offset_right = 717.2414
+offset_bottom = 179.72414
+scale = Vector2(0.21640013, 0.21891302)
+texture = ExtResource("9_q0dy2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=930557971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.84032, 1.1154666, 3.1911774)
+mesh = SubResource("CapsuleMesh_re8ii")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=43734989 node_paths=PackedStringArray("talk_tip")]
+script = ExtResource("12_0y1y2")
+talk_tip = NodePath("../../duihua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=1520103095]
+transform = Transform3D(2.905, 0, 0, 0, 2.905, 0, 0, 0, 2.905, 0, 0, 0)
+shape = SubResource("BoxShape3D_0y1y2")
 
 [editable path="qingqiu"]
 [editable path="Node3D"]
