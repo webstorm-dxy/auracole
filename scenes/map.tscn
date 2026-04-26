@@ -18,16 +18,17 @@ texture = ExtResource("1_4xfga")
 
 [node name="map" type="Control" unique_id=1441586672]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.667
+anchor_bottom = 1.8520001
+offset_right = -0.3840332
+offset_bottom = -0.096069336
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wslke")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1482126043]
 layout_mode = 0
-offset_right = 1920.0
+offset_right = 1900.0
 offset_bottom = 1200.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_paxxb")
 

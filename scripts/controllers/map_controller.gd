@@ -42,8 +42,7 @@ func _ready() -> void:
 
 
 func setup_inventory_data(next_inventory_data: InventoryDate) -> void:
-	next_inventory_data = _resolve_inventory_data(next_inventory_data)
-	inventory_data = next_inventory_data
+	inventory_data = _resolve_inventory_data(next_inventory_data)
 
 
 func _cache_slot_views() -> void:
@@ -138,7 +137,7 @@ func _refresh_slot(slot_index: int) -> void:
 		return
 	var view := _slot_views[slot_index]
 	var slot_data := _get_slot_data(slot_index)
-	var item_data := slot_data.item_data if slot_data != null else null
+	var item_data := _normalize_item_data(slot_data.item_data if slot_data != null else null)
 	_apply_slot_view(view, item_data)
 
 
@@ -206,6 +205,14 @@ func _set_label_text(target: Label, value: String) -> void:
 		target.text = value
 
 
+func _normalize_item_data(source_item_data: ItemData) -> ItemData:
+	if source_item_data == null:
+		return null
+	if String(source_item_data.name).strip_edges().is_empty():
+		return null
+	return source_item_data
+
+
 func _find_inventory_data_from_scene() -> InventoryDate:
 	var current_scene := get_tree().current_scene
 	if current_scene == null:
@@ -213,22 +220,17 @@ func _find_inventory_data_from_scene() -> InventoryDate:
 	if current_scene.has_method("_get_player_inventory_data"):
 		var provided_inventory := current_scene.call("_get_player_inventory_data") as InventoryDate
 		if provided_inventory != null:
-			return _resolve_inventory_data(provided_inventory)
+			return provided_inventory
 	var player_node := current_scene.find_child("Player", true, false)
 	if player_node == null:
 		return _load_inventory_from_disk()
-	return _resolve_inventory_data(player_node.get("inventory_data") as InventoryDate)
+	return player_node.get("inventory_data") as InventoryDate
 
 
 func _resolve_inventory_data(source_inventory: InventoryDate) -> InventoryDate:
-	if source_inventory == null:
-		return _load_inventory_from_disk()
-	if source_inventory.resource_path.is_empty():
+	if source_inventory != null:
 		return source_inventory
-	var reloaded_inventory := _load_inventory_from_disk(source_inventory.resource_path)
-	if reloaded_inventory != null:
-		return reloaded_inventory
-	return source_inventory
+	return _load_inventory_from_disk()
 
 
 func _load_inventory_from_disk(resource_path: String = DEFAULT_INVENTORY_RESOURCE_PATH) -> InventoryDate:

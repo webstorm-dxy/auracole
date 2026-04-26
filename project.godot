@@ -22,14 +22,21 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"2-0": "res://story/2-0.dch",
 "QingYun": "res://story/QingYun.dch",
 "boy": "res://resources/boy.dch",
-"commander": "res://resources/commander.dch"
+"child": "res://story/child.dch",
+"commander": "res://resources/commander.dch",
+"girl": "res://story/girl.dch"
 }
 directories/dtl_directory={
+"1-2": "res://story/1-2.dtl",
+"2-0": "res://story/2-0.dtl",
 "begin": "res://story/begin.dtl",
 "beginner": "res://story/beginner_1.dtl",
-"beginner_2": "res://story/beginner_2.dtl"
+"beginner_2": "res://story/beginner_2.dtl",
+"building": "res://story/building.dtl",
+"jisuan": "res://story/jisuan.dtl"
 }
 layout/style_directory={
 "": "res://story/beginner_style.tres",
@@ -76,8 +83,8 @@ audio/channel_defaults={
 
 [display]
 
-window/size/viewport_width=1920.0
-window/size/viewport_height=1200.0
+window/size/viewport_width=1900
+window/size/viewport_height=1200
 window/size/mode=4
 
 [dotnet]

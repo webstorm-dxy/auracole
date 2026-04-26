@@ -5,3 +5,6 @@
 .dotnet_cli/
 /model/Flood02/
 /model/Flood_01/
+
+# Claude Code local settings
+.claude/settings.local.json

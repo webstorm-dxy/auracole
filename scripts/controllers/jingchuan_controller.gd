@@ -250,14 +250,15 @@ func _get_player_inventory_data() -> InventoryDate:
 
 func _resolve_map_inventory_data() -> InventoryDate:
 	var runtime_inventory := _get_player_inventory_data()
-	var inventory_path := DEFAULT_INVENTORY_RESOURCE_PATH
-	if runtime_inventory != null and not runtime_inventory.resource_path.is_empty():
-		inventory_path = runtime_inventory.resource_path
-	if ResourceLoader.exists(inventory_path, "Resource"):
-		var reloaded_inventory := ResourceLoader.load(inventory_path, "", ResourceLoader.CACHE_MODE_REPLACE) as InventoryDate
-		if reloaded_inventory != null:
-			return reloaded_inventory
-	return runtime_inventory
+	if runtime_inventory != null:
+		return runtime_inventory
+	if ResourceLoader.exists(DEFAULT_INVENTORY_RESOURCE_PATH, "Resource"):
+		return ResourceLoader.load(
+			DEFAULT_INVENTORY_RESOURCE_PATH,
+			"",
+			ResourceLoader.CACHE_MODE_REPLACE
+		) as InventoryDate
+	return null
 
 
 func _ensure_map_parent() -> Control:

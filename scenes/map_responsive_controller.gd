@@ -104,37 +104,59 @@ func _apply_runtime_inventory_override() -> void:
 
 func _load_runtime_inventory() -> InventoryDate:
 	var payload = STORE.load_json_dictionary(STORE.MAP_VIEW_PATH)
-	if payload.is_empty():
+	var item_entries = payload.get("items", [])
+	if payload.is_empty() or not item_entries is Array or item_entries.is_empty():
 		return null
 
-	var base_inventory = ResourceLoader.load(
-		RUNTIME_INVENTORY_RESOURCE_PATH,
-		"",
-		ResourceLoader.CACHE_MODE_REPLACE
-	) as InventoryDate
+	var base_inventory = _duplicate_inventory(inventory_data)
+	if base_inventory == null:
+		base_inventory = _duplicate_inventory(
+			ResourceLoader.load(
+				RUNTIME_INVENTORY_RESOURCE_PATH,
+				"",
+				ResourceLoader.CACHE_MODE_REPLACE
+			) as InventoryDate
+		)
 	if base_inventory == null:
 		return null
 
-	var runtime_inventory = base_inventory.duplicate(true) as InventoryDate
-	if runtime_inventory == null:
+	var by_name: Dictionary = {}
+	for item_variant in item_entries:
+		var item: Dictionary = item_variant
+		var item_name := String(item.get("name", "")).strip_edges()
+		if item_name.is_empty():
+			continue
+		by_name[item_name] = item
+
+	if by_name.is_empty():
 		return null
 
-	var by_name: Dictionary = {}
-	for item_variant in payload.get("items", []):
-		var item: Dictionary = item_variant
-		by_name[String(item.get("name", ""))] = item
-
-	for slot_data in runtime_inventory.solt_date:
+	for slot_data in base_inventory.solt_date:
 		if slot_data == null or slot_data.item_data == null:
 			continue
 
-		var item_name = String(slot_data.item_data.name)
-		var entry: Dictionary = by_name.get(item_name, {})
-		slot_data.item_data.quantity = int(entry.get("quantity", 0))
-		slot_data.item_data.curr_produce = int(entry.get("curr_produce", 0))
-		slot_data.item_data.curr_consume = int(entry.get("curr_consume", 0))
-		slot_data.item_data.theory_produce = int(entry.get("theory_produce", 0))
-		slot_data.item_data.theory_consume = int(entry.get("theory_consume", 0))
-		slot_data.item_data.status = int(entry.get("status", 1))
+		var item_name := String(slot_data.item_data.name).strip_edges()
+		if item_name.is_empty() or not by_name.has(item_name):
+			continue
 
-	return runtime_inventory
+		var entry: Dictionary = by_name[item_name]
+		if entry.has("quantity"):
+			slot_data.item_data.quantity = int(entry.get("quantity", 0))
+		if entry.has("curr_produce"):
+			slot_data.item_data.curr_produce = int(entry.get("curr_produce", 0))
+		if entry.has("curr_consume"):
+			slot_data.item_data.curr_consume = int(entry.get("curr_consume", 0))
+		if entry.has("theory_produce"):
+			slot_data.item_data.theory_produce = int(entry.get("theory_produce", 0))
+		if entry.has("theory_consume"):
+			slot_data.item_data.theory_consume = int(entry.get("theory_consume", 0))
+		if entry.has("status"):
+			slot_data.item_data.status = int(entry.get("status", 1))
+
+	return base_inventory
+
+
+func _duplicate_inventory(source_inventory: InventoryDate) -> InventoryDate:
+	if source_inventory == null:
+		return null
+	return source_inventory.duplicate(true) as InventoryDate

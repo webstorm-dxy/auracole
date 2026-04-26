@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_2rucv")
 name = "高纯金属块"
-quantity = 66
+quantity = 100
 metadata/_custom_type_script = "uid://d4bsmwwf1ltoa"

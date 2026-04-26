@@ -7,10 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dtbi46uo726h8" path="res://model/kanami.gltf" id="3_a0mmc"]
 [ext_resource type="PackedScene" uid="uid://cqmpx0nlbttrj" path="res://model/Flood02/qingqiu.glb" id="6_emg11"]
 [ext_resource type="Material" uid="uid://v220huatlved" path="res://resources/texture/new_shader_material.tres" id="7_vdwwp"]
-[ext_resource type="PackedScene" uid="uid://cqgi1wmiltf8x" path="res://zhaiqu.tscn" id="8_gbkix"]
+[ext_resource type="PackedScene" uid="uid://cqgi1wmiltf8x" path="res://scenes/zhaiqu.tscn" id="8_gbkix"]
+[ext_resource type="Script" uid="uid://75vu31dh0ky3" path="res://scripts/area_move.gd" id="9_mcmhc"]
 [ext_resource type="Texture2D" uid="uid://tstudfvx6cop" path="res://resources/texture/圆角矩形.png" id="9_q0dy2"]
+[ext_resource type="Script" uid="uid://ckvgb2htmeu6i" path="res://scripts/area_build.gd" id="11_0y1y2"]
 [ext_resource type="Texture2D" uid="uid://clmd0y05snuds" path="res://resources/texture/duihua.png" id="11_re8ii"]
-[ext_resource type="Script" uid="uid://b517p15jvrckb" path="res://scripts/area_talk.gd" id="12_0y1y2"]
+[ext_resource type="PackedScene" uid="uid://dy3rgwvg1ie14" path="res://scenes/placement_logic/main.tscn" id="12_0y1y2"]
+[ext_resource type="PackedScene" uid="uid://ba6porj5rgflm" path="res://scenes/builder.tscn" id="13_u3u7b"]
+[ext_resource type="PackedScene" uid="uid://bp1dvf37ttwho" path="res://scenes/test_offline_production.tscn" id="14_qajq2"]
+[ext_resource type="PackedScene" uid="uid://qpavk7fkuapy" path="res://model/npc/nr1.glb" id="16_5b4cl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gbkix"]
 panorama = ExtResource("2_gbkix")
@@ -28,6 +33,9 @@ glow_enabled = true
 radius = 0.29248047
 height = 1.6279297
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mcmhc"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbkix"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_emg11"]
@@ -36,9 +44,13 @@ material = ExtResource("7_vdwwp")
 [sub_resource type="BoxMesh" id="BoxMesh_vdwwp"]
 material = ExtResource("7_vdwwp")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_re8ii"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qajq2"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mcmhc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0y1y2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_re8ii"]
 
 [node name="JingChuan" type="Node3D" unique_id=1590024785]
 script = ExtResource("1_vg6x4")
@@ -53,7 +65,7 @@ shadow_enabled = true
 sky_mode = 2
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=605012619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.27153, 0.30203152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.04268, 0.30203152, -3.0241013)
 script = ExtResource("2_h4a5q")
 inventory_data = ExtResource("3_26vp5")
 camera_distance = 2.5
@@ -73,10 +85,19 @@ shape = SubResource("CapsuleShape3D_26vp5")
 [node name="kanami" parent="Player" unique_id=791656827 instance=ExtResource("3_a0mmc")]
 transform = Transform3D(-0.9453366, 0, 0.32609624, 0, 1, 0, -0.32609624, 0, -0.9453366, 0, -0.14080942, 0)
 
-[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=817051716]
-
 [node name="qingqiu" parent="." unique_id=800631026 instance=ExtResource("6_emg11")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -21.403616, 0.234725, 0)
+
+[node name="node_0_012" parent="qingqiu" index="2" unique_id=2018917622]
+transform = Transform3D(0.679534, -35.434536, 9.954014e-06, -2.0354135e-05, -8.448588e-06, -42.17675, 75.882675, 0.31731844, -1.1402279e-05, 73.97452, 0.6403197, 259.53937)
+
+[node name="h_001" parent="qingqiu" index="19" unique_id=1402441263]
+transform = Transform3D(224.5671, 0, 0, 0, 1.775, 0, 0, 0, 132.96786, 54.282047, 0.52171874, 282.5902)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="qingqiu/h_001" index="0" unique_id=325350679]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="qingqiu/h_001/StaticBody3D" unique_id=805434000]
+shape = SubResource("ConvexPolygonShape3D_mcmhc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="qingqiu/h3" parent_id_path=PackedInt32Array(800631026, 902470277) index="0" unique_id=430524386]
 
@@ -106,7 +127,23 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1.29, 0, 1, -5.638769e-08, 0
 [node name="MeshInstance3D" parent="Node3D/zhaiqu/Node3D" parent_id_path=PackedInt32Array(1967404575, 306335701, 1423283382) index="18" unique_id=1837888069]
 transform = Transform3D(16.575, 0, 0, 0, 16.575, 0, 0, 0, 16.575, 0.068107605, 0, 0.0013480186)
 
+[node name="Sketchfab_Scene8" parent="Node3D/zhaiqu/Node3D" parent_id_path=PackedInt32Array(1967404575, 306335701, 1423283382) index="37" unique_id=782291371]
+transform = Transform3D(-0.7067734, 0, -0.70744014, 0, 1, 0, 0.70744014, 0, -0.7067734, 5.3870697, 0, -1.0489616)
+
+[node name="RootNode40" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8/Sketchfab_model28/c3057af9f9bd4f609d9b85116f951fd1_fbx" parent_id_path=PackedInt32Array(1967404575, 306335701, 1042802470) index="0" unique_id=1687459700]
+transform = Transform3D(0.9999999, 1.6940659e-21, -1.7881393e-07, 8.4703295e-22, 1, -2.5410988e-21, 1.7881393e-07, 0, 0.9999999, -378.20703, -7.087206e-12, -319.1797)
+
+[node name="Area3D" type="Area3D" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8" index="1" unique_id=646699726 node_paths=PackedStringArray("talk_tip", "teleport_target")]
+script = ExtResource("9_mcmhc")
+talk_tip = NodePath("../../../../../chuansong")
+teleport_target = NodePath("../../../../../Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8/Area3D" unique_id=1894523449]
+transform = Transform3D(3.5199785, 0, -0.84507203, 0, 3.6199996, 0, 0.84507203, 0, 3.5199785, -3.2221909, 0, -2.632988)
+shape = SubResource("BoxShape3D_qajq2")
+
 [node name="duihua" type="Control" parent="." unique_id=2128794716]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,17 +183,96 @@ offset_bottom = 179.72414
 scale = Vector2(0.21640013, 0.21891302)
 texture = ExtResource("9_q0dy2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=930557971]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.84032, 1.1154666, 3.1911774)
-mesh = SubResource("CapsuleMesh_re8ii")
+[node name="npc_01" type="MeshInstance3D" parent="." unique_id=930557971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.84032, 1.1154666, 6.624152)
+mesh = SubResource("ArrayMesh_mcmhc")
 
-[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=43734989 node_paths=PackedStringArray("talk_tip")]
-script = ExtResource("12_0y1y2")
+[node name="Area3D" type="Area3D" parent="npc_01" unique_id=43734989 node_paths=PackedStringArray("talk_tip")]
+script = ExtResource("11_0y1y2")
 talk_tip = NodePath("../../duihua")
+duihua = "beginner"
+inventory_scene = ExtResource("12_0y1y2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=1520103095]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_01/Area3D" unique_id=1520103095]
 transform = Transform3D(2.905, 0, 0, 0, 2.905, 0, 0, 0, 2.905, 0, 0, 0)
 shape = SubResource("BoxShape3D_0y1y2")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1616540351]
+
+[node name="chuansong" type="Control" parent="." unique_id=716610174]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1594.0001
+offset_top = 833.00006
+offset_right = -197.31995
+offset_bottom = -310.99994
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.45, 1.45)
+
+[node name="TextureRect" type="TextureRect" parent="chuansong" unique_id=1129455623]
+layout_mode = 0
+offset_left = 12.413828
+offset_top = 15.862085
+offset_right = 212.41383
+offset_bottom = 215.86209
+scale = Vector2(0.13939357, 0.13543089)
+texture = ExtResource("11_re8ii")
+
+[node name="Label" type="Label" parent="chuansong" unique_id=1428307115]
+layout_mode = 0
+offset_left = 39.31031
+offset_top = 16.55174
+offset_right = 113.31031
+offset_bottom = 39.551743
+text = "    按F传送"
+
+[node name="TextureRect2" type="TextureRect" parent="chuansong" unique_id=729771771]
+modulate = Color(1, 1, 1, 0.29411766)
+layout_mode = 0
+offset_left = -2.758625
+offset_top = 11.72414
+offset_right = 717.2414
+offset_bottom = 179.72414
+scale = Vector2(0.21640013, 0.21891302)
+texture = ExtResource("9_q0dy2")
+
+[node name="npc_02" type="MeshInstance3D" parent="." unique_id=516074271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.916885, 1.1154666, -3.4322834)
+mesh = SubResource("CapsuleMesh_re8ii")
+
+[node name="Area3D" type="Area3D" parent="npc_02" unique_id=2009757519 node_paths=PackedStringArray("talk_tip")]
+script = ExtResource("11_0y1y2")
+talk_tip = NodePath("../../duihua")
+duihua = "building"
+inventory_scene = ExtResource("13_u3u7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_02/Area3D" unique_id=1858002020]
+transform = Transform3D(2.905, 0, 0, 0, 2.905, 0, 0, 0, 2.905, 0, 0, 0)
+shape = SubResource("BoxShape3D_0y1y2")
+
+[node name="npc_03" type="MeshInstance3D" parent="." unique_id=336716778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.83498, 1.1154666, -8.685295)
+mesh = SubResource("CapsuleMesh_re8ii")
+
+[node name="Area3D" type="Area3D" parent="npc_03" unique_id=1749357215 node_paths=PackedStringArray("talk_tip")]
+script = ExtResource("11_0y1y2")
+talk_tip = NodePath("../../duihua")
+duihua = "jisuan"
+inventory_scene = ExtResource("14_qajq2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_03/Area3D" unique_id=145518325]
+transform = Transform3D(2.905, 0, 0, 0, 2.905, 0, 0, 0, 2.905, 0, 0, 0)
+shape = SubResource("BoxShape3D_0y1y2")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1542526020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12460613, 0.7984127, 121.68966)
+
+[node name="om_cn_41" parent="." unique_id=1022073274 instance=ExtResource("16_5b4cl")]
+transform = Transform3D(0.18225263, 0, -0.98325175, 0, 1, 0, 0.98325175, 0, 0.18225263, -102.5146, 0.008370161, 6.3559294)
 
 [editable path="qingqiu"]
 [editable path="Node3D"]

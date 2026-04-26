@@ -3,7 +3,12 @@
     "allow": [
       "mcp__godot-mcp__read_file",
       "mcp__godot-mcp__list_dir",
-      "mcp__godot-mcp__read_scene"
+      "mcp__godot-mcp__read_scene",
+      "Bash(find ./model -type f -not -path */.git/*)",
+      "Bash(while IFS= read -r f)",
+      "Bash(do ls:*)",
+      "Bash(done)",
+      "Bash(sort -k5 -h -r)"
     ]
   }
 }
