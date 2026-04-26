@@ -523,11 +523,11 @@ func _collect_theoretical_rates(machines: Dictionary, field_name: String) -> Dic
 		if cycle_time <= EPSILON:
 			continue
 
-		var scale = 60.0 / cycle_time
+		var per_minute_scale = 60.0 / cycle_time
 		var entries: Dictionary = recipe.get(field_name, {})
 		for item_name_variant in entries.keys():
 			var item_name = String(item_name_variant)
-			var value = float(entries.get(item_name, 0)) * scale
+			var value = float(entries.get(item_name, 0)) * per_minute_scale
 			totals[item_name] = int(round(float(totals.get(item_name, 0)) + value))
 
 	return totals

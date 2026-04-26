@@ -31,25 +31,18 @@ func setup_recipe(recipe_data: RecipeData) -> void:
 	_recipe_data = recipe_data
 	device_name_label.text = recipe_data.device_name
 	category_label.text = _get_category_text(recipe_data)
-	input_label.text = _format_field(recipe_data.input_items)
-	output_label.text = _format_field(recipe_data.output_items)
+	input_label.text = RecipeTextFormatter.format_optional(recipe_data.input_items)
+	output_label.text = RecipeTextFormatter.format_optional(recipe_data.output_items)
 
 	var has_notes: bool = not recipe_data.notes.strip_edges().is_empty()
 	notes_container.visible = has_notes
 	notes_label.text = recipe_data.notes
 
 	tooltip_text = "输入：%s\n输出：%s" % [
-		_format_field(recipe_data.input_items),
-		_format_field(recipe_data.output_items),
+		RecipeTextFormatter.format_optional(recipe_data.input_items),
+		RecipeTextFormatter.format_optional(recipe_data.output_items),
 	]
 	hint_label.text = "点击查看流程图"
-
-
-func _format_field(value: String) -> String:
-	var trimmed: String = value.strip_edges()
-	if trimmed.is_empty():
-		return "无"
-	return trimmed
 
 
 func _get_category_text(recipe_data: RecipeData) -> String:

@@ -38,10 +38,10 @@ func show_recipe(recipe: RecipeData) -> void:
 	_current_recipe = recipe
 	title_label.text = recipe.device_name
 	info_label.text = "输入：%s\n输出：%s" % [
-		_format_field(recipe.input_items),
-		_format_field(recipe.output_items),
+		RecipeTextFormatter.format_optional(recipe.input_items),
+		RecipeTextFormatter.format_optional(recipe.output_items),
 	]
-	_display_flow_chart(_build_flow_chart(recipe))
+	_display_flow_chart(RecipeFlowChartBuilder.build(recipe, _custom_flow_charts))
 	_apply_responsive_layout()
 	popup_centered(_get_popup_size())
 
@@ -86,80 +86,6 @@ func _clear_flow_chart() -> void:
 	_step_nodes.clear()
 
 
-func _build_flow_chart(recipe: RecipeData) -> Dictionary:
-	if _custom_flow_charts.has(recipe.recipe_id):
-		var raw_flow: Dictionary = _custom_flow_charts.get(recipe.recipe_id, {})
-		return _normalize_flow_chart(raw_flow)
-
-	return _build_default_flow_chart(recipe)
-
-
-func _build_default_flow_chart(recipe: RecipeData) -> Dictionary:
-	var steps: Array[Dictionary] = []
-	var connections: Array[Dictionary] = []
-	var input_items: PackedStringArray = recipe.get_input_items()
-	var output_items: PackedStringArray = recipe.get_output_items()
-	var device_id: String = "device"
-
-	var input_positions: Array[float] = _build_vertical_positions(max(input_items.size(), 1), 120.0, 540.0)
-	var output_positions: Array[float] = _build_vertical_positions(max(output_items.size(), 1), 120.0, 540.0)
-
-	if input_items.is_empty():
-		input_items = PackedStringArray(["无输入"])
-	if output_items.is_empty():
-		output_items = PackedStringArray(["无输出"])
-
-	for i in input_items.size():
-		var step_id: String = "input_%d" % i
-		steps.append({
-			"id": step_id,
-			"name": input_items[i],
-			"kind": "input",
-			"duration": 2.0,
-			"pos": Vector2(90, input_positions[i]),
-		})
-		connections.append({"from": step_id, "to": device_id})
-
-	steps.append({
-		"id": device_id,
-		"name": recipe.device_name,
-		"kind": "device",
-		"duration": 2.0,
-		"pos": Vector2(420, 250),
-		"size": Vector2(200, 104),
-	})
-
-	for i in output_items.size():
-		var step_id: String = "output_%d" % i
-		steps.append({
-			"id": step_id,
-			"name": output_items[i],
-			"kind": "output",
-			"duration": 2.0,
-			"pos": Vector2(820, output_positions[i]),
-		})
-		connections.append({"from": device_id, "to": step_id})
-
-	return {
-		"steps": steps,
-		"connections": connections,
-	}
-
-
-func _build_vertical_positions(count: int, min_y: float, max_y: float) -> Array[float]:
-	var positions: Array[float] = []
-
-	if count <= 1:
-		positions.append((min_y + max_y) * 0.5)
-		return positions
-
-	var step: float = (max_y - min_y) / float(count - 1)
-	for index in count:
-		positions.append(min_y + step * index)
-
-	return positions
-
-
 func _apply_styles() -> void:
 	var popup_style: StyleBoxFlat = StyleBoxFlat.new()
 	popup_style.bg_color = Color("0d1524")
@@ -188,71 +114,8 @@ func _apply_styles() -> void:
 	flow_panel.add_theme_stylebox_override("panel", flow_style)
 
 
-func _format_field(value: String) -> String:
-	var trimmed: String = value.strip_edges()
-	if trimmed.is_empty():
-		return "无"
-	return trimmed
-
-
 func _load_flow_charts() -> void:
 	_custom_flow_charts = JsonFileLoader.load_json_dictionary(FLOW_CHARTS_JSON_PATH)
-
-
-func _normalize_flow_chart(raw_flow: Dictionary) -> Dictionary:
-	var steps: Array[Dictionary] = []
-	var connections: Array[Dictionary] = []
-	var raw_steps: Array = raw_flow.get("steps", [])
-	var raw_connections: Array = raw_flow.get("connections", [])
-
-	for raw_step_entry in raw_steps:
-		if not (raw_step_entry is Dictionary):
-			continue
-
-		var raw_step: Dictionary = raw_step_entry
-		var step: Dictionary = {
-			"id": String(raw_step.get("id", "")),
-			"name": String(raw_step.get("name", "")),
-			"kind": String(raw_step.get("kind", "default")),
-			"duration": float(raw_step.get("duration", 0.0)),
-			"pos": _parse_vector2(raw_step.get("pos", [0, 0]), Vector2.ZERO),
-		}
-
-		if raw_step.has("size"):
-			step["size"] = _parse_vector2(raw_step.get("size", [180, 92]), Vector2(180, 92))
-
-		steps.append(step)
-
-	for raw_connection_entry in raw_connections:
-		if not (raw_connection_entry is Dictionary):
-			continue
-
-		var raw_connection: Dictionary = raw_connection_entry
-		connections.append({
-			"from": String(raw_connection.get("from", "")),
-			"to": String(raw_connection.get("to", "")),
-		})
-
-	return {
-		"steps": steps,
-		"connections": connections,
-	}
-
-
-func _parse_vector2(raw_value: Variant, default_value: Vector2) -> Vector2:
-	if raw_value is Array:
-		var values: Array = raw_value
-		if values.size() >= 2:
-			return Vector2(float(values[0]), float(values[1]))
-
-	if raw_value is Dictionary:
-		var values_dict: Dictionary = raw_value
-		return Vector2(
-			float(values_dict.get("x", default_value.x)),
-			float(values_dict.get("y", default_value.y))
-		)
-
-	return default_value
 
 
 func _on_viewport_resized() -> void:

@@ -48,7 +48,7 @@ func _ready() -> void:
 	set_process_unhandled_input(false)
 	# 隐藏交互提示
 	_set_talk_tip_visible(false)
-	_ensure_dialog_host()
+	call_deferred("_ensure_dialog_host")
 
 	# 连接 Area3D 的“身体进入”信号
 	if not body_entered.is_connected(_on_body_enter):

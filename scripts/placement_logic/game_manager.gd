@@ -37,8 +37,8 @@ var item_database: Dictionary = {}
 var inventory: Dictionary = {}
 var selected_item_id: String = ""
 var is_conveyor_mode: bool = false
-var _blueprints: Array[Dictionary] = []
-var _operation_history: Array[Dictionary] = []
+var _blueprint_store: BlueprintStore = BlueprintStore.new(BLUEPRINT_SAVE_PATH)
+var _operation_history: OperationHistory = OperationHistory.new()
 
 var _last_mouse_position: Vector2 = Vector2.ZERO
 var _pressed_building: Building = null
@@ -641,7 +641,7 @@ func _on_blueprint_save_requested(blueprint_name: String) -> void:
 	if normalized_name.is_empty():
 		return
 
-	if _find_blueprint_index(normalized_name) != -1:
+	if _blueprint_store.has_name(normalized_name):
 		blueprint_sidebar.show_duplicate_name_warning("蓝图名称已存在，请重新命名")
 		return
 
@@ -650,8 +650,8 @@ func _on_blueprint_save_requested(blueprint_name: String) -> void:
 		"items": _collect_blueprint_items(),
 		"conveyors": map_manager.get_serialized_conveyors()
 	}
-	_blueprints.append(blueprint_data)
-	_save_blueprints()
+	_blueprint_store.add(blueprint_data)
+	_blueprint_store.save()
 	_refresh_blueprint_list()
 	blueprint_sidebar.confirm_save_success()
 
@@ -666,31 +666,27 @@ func _on_blueprint_rename_requested(old_name: String, new_name: String) -> void:
 		blueprint_sidebar.confirm_save_success()
 		return
 
-	var old_blueprint_index: int = _find_blueprint_index(old_blueprint_name)
-	if old_blueprint_index == -1:
+	if not _blueprint_store.has_name(old_blueprint_name):
 		return
 
-	if _find_blueprint_index(new_blueprint_name) != -1:
+	if _blueprint_store.has_name(new_blueprint_name):
 		blueprint_sidebar.show_duplicate_name_warning("不可以重命名，请重新命名")
 		return
 
-	var renamed_blueprint: Dictionary = (_blueprints[old_blueprint_index] as Dictionary).duplicate(true)
-	renamed_blueprint["name"] = new_blueprint_name
-	_blueprints[old_blueprint_index] = renamed_blueprint
-	_save_blueprints()
+	_blueprint_store.rename(old_blueprint_name, new_blueprint_name)
+	_blueprint_store.save()
 	_refresh_blueprint_list()
 	blueprint_sidebar.confirm_save_success()
 
 
 func _on_blueprint_load_requested(blueprint_name: String) -> void:
-	var blueprint_index := _find_blueprint_index(blueprint_name)
-	if blueprint_index == -1:
+	var blueprint := _blueprint_store.get_blueprint(blueprint_name)
+	if blueprint.is_empty():
 		return
 
 	_prepare_blueprint_edit_mode()
 	_clear_current_map(true)
 
-	var blueprint: Dictionary = _blueprints[blueprint_index]
 	var blueprint_items: Array = blueprint.get("items", [])
 	for item_variant in blueprint_items:
 		var item_data := item_variant as Dictionary
@@ -704,12 +700,10 @@ func _on_blueprint_load_requested(blueprint_name: String) -> void:
 
 
 func _on_blueprint_delete_requested(blueprint_name: String) -> void:
-	var blueprint_index := _find_blueprint_index(blueprint_name)
-	if blueprint_index == -1:
+	if not _blueprint_store.remove(blueprint_name):
 		return
 
-	_blueprints.remove_at(blueprint_index)
-	_save_blueprints()
+	_blueprint_store.save()
 	_refresh_blueprint_list()
 
 
@@ -786,69 +780,11 @@ func _parse_blueprint_cell(cell_data: Variant) -> Vector2i:
 
 
 func _refresh_blueprint_list() -> void:
-	var blueprint_names: Array[String] = []
-	for blueprint in _blueprints:
-		blueprint_names.append(str(blueprint.get("name", "")))
-	blueprint_sidebar.refresh_blueprints(blueprint_names)
-
-
-func _find_blueprint_index(blueprint_name: String) -> int:
-	for index in _blueprints.size():
-		var blueprint: Dictionary = _blueprints[index]
-		if str(blueprint.get("name", "")) == blueprint_name:
-			return index
-	return -1
+	blueprint_sidebar.refresh_blueprints(_blueprint_store.get_names())
 
 
 func _load_blueprints() -> void:
-	if not FileAccess.file_exists(BLUEPRINT_SAVE_PATH):
-		_blueprints.clear()
-		_save_blueprints()
-		return
-
-	var file := FileAccess.open(BLUEPRINT_SAVE_PATH, FileAccess.READ)
-	if file == null:
-		push_warning("Failed to open blueprint save file for reading.")
-		_blueprints.clear()
-		return
-
-	var raw_text := file.get_as_text().strip_edges()
-	file.close()
-	if raw_text.is_empty():
-		_blueprints.clear()
-		_save_blueprints()
-		return
-
-	var parsed: Variant = JSON.parse_string(raw_text)
-	if not (parsed is Dictionary):
-		push_warning("Blueprint save file is invalid. Resetting blueprint data.")
-		_blueprints.clear()
-		_save_blueprints()
-		return
-
-	_blueprints.clear()
-	var parsed_blueprints: Array = (parsed as Dictionary).get("blueprints", [])
-	for blueprint_variant in parsed_blueprints:
-		var blueprint := blueprint_variant as Dictionary
-		if blueprint.is_empty():
-			continue
-		if not blueprint.has("name"):
-			continue
-		blueprint["items"] = blueprint.get("items", [])
-		blueprint["conveyors"] = blueprint.get("conveyors", [])
-		_blueprints.append(blueprint)
-
-
-func _save_blueprints() -> void:
-	var file := FileAccess.open(BLUEPRINT_SAVE_PATH, FileAccess.WRITE)
-	if file == null:
-		push_warning("Failed to open blueprint save file for writing.")
-		return
-
-	file.store_string(JSON.stringify({
-		"blueprints": _blueprints
-	}, "\t"))
-	file.close()
+	_blueprint_store.load()
 
 
 func _on_conveyor_generated(conveyor_id: int) -> void:
@@ -874,7 +810,7 @@ func _on_undo_pressed() -> void:
 	if is_conveyor_mode:
 		_exit_conveyor_mode()
 
-	var operation: Dictionary = _operation_history.pop_back()
+	var operation: Dictionary = _operation_history.pop()
 	match int(operation.get("type", -1)):
 		OperationType.PLACE_BUILDING:
 			var building: Building = operation.get("building") as Building
@@ -902,7 +838,7 @@ func _on_recipe_button_pressed() -> void:
 
 
 func _push_operation(operation: Dictionary) -> void:
-	_operation_history.append(operation)
+	_operation_history.push(operation)
 	_update_top_action_buttons()
 
 
@@ -911,21 +847,11 @@ func _clear_operation_history() -> void:
 
 
 func _remove_building_operations(building: Building) -> void:
-	for index in range(_operation_history.size() - 1, -1, -1):
-		var operation: Dictionary = _operation_history[index]
-		if int(operation.get("type", -1)) != OperationType.PLACE_BUILDING:
-			continue
-		if operation.get("building") == building:
-			_operation_history.remove_at(index)
+	_operation_history.remove_matching(OperationType.PLACE_BUILDING, "building", building)
 
 
 func _remove_conveyor_operations(conveyor_id: int) -> void:
-	for index in range(_operation_history.size() - 1, -1, -1):
-		var operation: Dictionary = _operation_history[index]
-		if int(operation.get("type", -1)) != OperationType.ADD_CONVEYOR:
-			continue
-		if int(operation.get("conveyor_id", -1)) == conveyor_id:
-			_operation_history.remove_at(index)
+	_operation_history.remove_matching(OperationType.ADD_CONVEYOR, "conveyor_id", conveyor_id)
 
 
 func _update_top_action_buttons() -> void:

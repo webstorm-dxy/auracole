@@ -133,10 +133,10 @@ transform = Transform3D(-0.7067734, 0, -0.70744014, 0, 1, 0, 0.70744014, 0, -0.7
 [node name="RootNode40" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8/Sketchfab_model28/c3057af9f9bd4f609d9b85116f951fd1_fbx" parent_id_path=PackedInt32Array(1967404575, 306335701, 1042802470) index="0" unique_id=1687459700]
 transform = Transform3D(0.9999999, 1.6940659e-21, -1.7881393e-07, 8.4703295e-22, 1, -2.5410988e-21, 1.7881393e-07, 0, 0.9999999, -378.20703, -7.087206e-12, -319.1797)
 
-[node name="Area3D" type="Area3D" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8" index="1" unique_id=646699726 node_paths=PackedStringArray("talk_tip", "teleport_target")]
+[node name="Area3D" type="Area3D" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8" index="1" unique_id=646699726 node_paths=PackedStringArray("teleport_target", "talk_tip")]
 script = ExtResource("9_mcmhc")
-talk_tip = NodePath("../../../../../chuansong")
 teleport_target = NodePath("../../../../../Marker3D")
+talk_tip = NodePath("../../../../../chuansong")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/zhaiqu/Node3D/Sketchfab_Scene8/Area3D" unique_id=1894523449]
 transform = Transform3D(3.5199785, 0, -0.84507203, 0, 3.6199996, 0, 0.84507203, 0, 3.5199785, -3.2221909, 0, -2.632988)

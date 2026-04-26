@@ -46,6 +46,7 @@ public partial class ProductionLineManager : Control
 	private const string SnapshotPath = "user://production_snapshot.json";
 	private readonly Dictionary<string, Recipe> _recipes = new(StringComparer.Ordinal);
 	private readonly List<MachineController> _machines = [];
+	private readonly ProductionSnapshotRepository _snapshotRepository = new(SnapshotPath);
 
 	private Label? _inputInventoryLabel;
 	private Label? _outputInventoryLabel;
@@ -80,9 +81,7 @@ public partial class ProductionLineManager : Control
 			Machines = _machines.Select(machine => machine.BuildSnapshot()).ToArray()
 		};
 
-		string json = Json.Stringify(ProductionSerialization.SerializeSnapshotFile(snapshotFile), "\t", true);
-		using FileAccess file = FileAccess.Open(SnapshotPath, FileAccess.ModeFlags.Write);
-		file.StoreString(json);
+		_snapshotRepository.Save(snapshotFile);
 		WriteLog($"快照已保存到 {SnapshotPath}");
 	}
 
@@ -309,22 +308,24 @@ public partial class ProductionLineManager : Control
 	/// </summary>
 	private ProductionSnapshotFile? TryLoadSnapshotFile()
 	{
-		if (!FileAccess.FileExists(SnapshotPath))
+		ProductionSnapshotFile? snapshotFile = _snapshotRepository.TryLoad(
+			out bool fileMissing,
+			out bool parseFailed
+		);
+
+		if (fileMissing)
 		{
 			WriteLog("未找到快照文件，改为使用当前场景状态作为离线推演起点。");
 			return null;
 		}
 
-		using FileAccess file = FileAccess.Open(SnapshotPath, FileAccess.ModeFlags.Read);
-		string jsonText = file.GetAsText();
-		Variant parsed = Json.ParseString(jsonText);
-		if (parsed.VariantType != Variant.Type.Dictionary)
+		if (parseFailed)
 		{
 			WriteLog("快照 JSON 解析失败，改为使用当前场景状态。");
 			return null;
 		}
 
-		return ProductionSerialization.DeserializeSnapshotFile(parsed.AsGodotDictionary());
+		return snapshotFile;
 	}
 
 	/// <summary>
